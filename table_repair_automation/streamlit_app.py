@@ -24,7 +24,7 @@ uploaded_file = st.file_uploader("Upload your .S file", type=["S", "txt"])
 
 option = st.selectbox(
     "Choose an action",
-    ("Insert", "Append", "Delete")
+    ("Insert", "Delete")
 )
 
 position = None
@@ -61,4 +61,5 @@ if uploaded_file is not None and st.button("Process"):
         file_name="result.S",
         mime="text/plain"
     )
+
 
