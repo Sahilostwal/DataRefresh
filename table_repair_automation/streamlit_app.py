@@ -9,11 +9,6 @@ def insert_string_at_position(original_string, position, insert_string):
     parts.insert(position - 1, insert_string)
     return '|'.join(parts)
 
-def append_string_to_end(original_string, append_string):
-    if not original_string.endswith('|'):
-        return original_string + '|' + append_string
-    return original_string + append_string
-
 def delete_string_at_position(original_string, position):
     parts = original_string.split('|')
     if position < 1 or position > len(parts):
@@ -40,9 +35,6 @@ if option == "Insert":
     position = st.number_input("Enter position to insert", min_value=1, step=1)
     insert_string = st.text_input("Enter string to insert")
 
-elif option == "Append":
-    append_string = st.text_input("Enter string to append")
-
 elif option == "Delete":
     position = st.number_input("Enter position to delete", min_value=1, step=1)
 
@@ -55,9 +47,6 @@ if uploaded_file is not None and st.button("Process"):
 
         if option == "Insert":
             modified_lines.append(insert_string_at_position(line, position, insert_string))
-
-        elif option == "Append":
-            modified_lines.append(append_string_to_end(line, append_string))
 
         elif option == "Delete":
             modified_lines.append(delete_string_at_position(line, position))
@@ -72,3 +61,4 @@ if uploaded_file is not None and st.button("Process"):
         file_name="result.S",
         mime="text/plain"
     )
+
